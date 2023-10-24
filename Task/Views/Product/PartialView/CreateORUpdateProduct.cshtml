@@ -1,0 +1,36 @@
+﻿
+@model ProductViewModel
+
+@{
+    var Categories = new SelectList(ViewBag.Categories, "Id", "Name");
+}
+
+<div class="form-group">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" class="form-control" placeholder="Enter Name">
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Price"></label>
+    <input asp-for="Price" class="form-control">
+    <span asp-validation-for="Price" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Duration"></label>
+    <input asp-for="Duration" class="form-control">
+    <span asp-validation-for="Duration" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="StartDate"></label>
+    <input asp-for="StartDate" class="form-control" >
+    <span asp-validation-for="StartDate" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="CategoryId">Category</label>
+    <select asp-for="CategoryId" asp-items="Categories" class="form-control">
+        <option>--select Category--</option>
+    </select>
+    <span asp-validation-for="CategoryId" class="text-danger"></span>
+</div>
+<br />
+<a asp-controller="Product" asp-action="Index" class="btn btn-secondary">Back To Products</a>

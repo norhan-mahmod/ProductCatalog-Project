@@ -1,0 +1,51 @@
+﻿@model List<ApplicationRole>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Roles</h1>
+<br />
+<div class="row">
+    <div class="col-4">
+        <a asp-controller="Role" asp-action="Create" class="btn btn-primary">Create New Role</a>
+    </div>
+</div>
+<br />
+@if (Model.Count != 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Details</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td>@role.Name</td>
+                    <td>
+                        <a asp-controller="Role" asp-action="Details" asp-route-roleId="@role.Id" class="btn btn-success">Details</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Role" asp-action="Update" asp-route-roleId="@role.Id" class="btn btn-primary">Update</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Role" asp-action="Delete" asp-route-roleIdd="@role.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        <h3>there is no Roles</h3>
+    </div>
+}
+

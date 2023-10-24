@@ -1,0 +1,19 @@
+﻿@model ApplicationRole
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Role Details</h1>
+<hr />
+<hr />
+
+<div class="form-group">
+    <label asp-for="Name" class="col-form-label"></label>
+    <input asp-for="Name" class="form-control" readonly />
+
+    <br />
+    <a asp-controller="Role" asp-action="Update" asp-route-roleId="@Model.Id" class="btn btn-success">Update</a>
+    <a asp-controller="Role" asp-action="Index" class="btn btn-light">Back To List</a>
+</div>
